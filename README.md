@@ -15,3 +15,15 @@ override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
   }
 }
 ```
+
+Detect current environment.
+
+```
+if ShakeToChange.currentEnvironment() == ShakeToChange.isProduction {
+            
+}
+        
+if ShakeToChange.currentEnvironment() == ShakeToChange.isDevelopment {
+            
+}
+```
