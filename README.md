@@ -27,3 +27,6 @@ if ShakeToChange.currentEnvironment() == ShakeToChange.isDevelopment {
             
 }
 ```
+
+## Shake to Change
+![Screenshot](https://www.dropbox.com/s/w1n505h56im3zcc/Screenshot.png?dl=0&raw=1)
