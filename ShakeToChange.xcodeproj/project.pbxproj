@@ -15,7 +15,8 @@
 		6248BB3A1CBD056600260C98 /* ShakeToChangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6248BB391CBD056600260C98 /* ShakeToChangeTests.swift */; };
 		6248BB451CBD056600260C98 /* ShakeToChangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6248BB441CBD056600260C98 /* ShakeToChangeUITests.swift */; };
 		62548FEA1CD0707000D1B17D /* ShakeToChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62548FE91CD0707000D1B17D /* ShakeToChange.swift */; };
-		628073581CBD0D08004F96F5 /* ViewController-Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628073571CBD0D08004F96F5 /* ViewController-Shake.swift */; };
+		6270021A1DAF1B500056DEE7 /* ShakeToChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627002191DAF1B500056DEE7 /* ShakeToChangeViewController.swift */; };
+		6270021D1DAF1B9D0056DEE7 /* ShakeToChangeViewController-Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6270021C1DAF1B9D0056DEE7 /* ShakeToChangeViewController-Motion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +51,8 @@
 		6248BB441CBD056600260C98 /* ShakeToChangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeToChangeUITests.swift; sourceTree = "<group>"; };
 		6248BB461CBD056600260C98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62548FE91CD0707000D1B17D /* ShakeToChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShakeToChange.swift; path = Sources/ShakeToChange.swift; sourceTree = "<group>"; };
-		628073571CBD0D08004F96F5 /* ViewController-Shake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController-Shake.swift"; sourceTree = "<group>"; };
+		627002191DAF1B500056DEE7 /* ShakeToChangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShakeToChangeViewController.swift; path = Sources/ShakeToChangeViewController.swift; sourceTree = "<group>"; };
+		6270021C1DAF1B9D0056DEE7 /* ShakeToChangeViewController-Motion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ShakeToChangeViewController-Motion.swift"; path = "Sources/ShakeToChangeViewController-Motion.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +106,6 @@
 				62548FEB1CD0714700D1B17D /* ShakeToChange */,
 				6248BB241CBD056600260C98 /* AppDelegate.swift */,
 				6248BB261CBD056600260C98 /* ViewController.swift */,
-				628073571CBD0D08004F96F5 /* ViewController-Shake.swift */,
 				6248BB281CBD056600260C98 /* Main.storyboard */,
 				6248BB2B1CBD056600260C98 /* Assets.xcassets */,
 				6248BB2D1CBD056600260C98 /* LaunchScreen.storyboard */,
@@ -134,9 +135,19 @@
 		62548FEB1CD0714700D1B17D /* ShakeToChange */ = {
 			isa = PBXGroup;
 			children = (
+				6270021B1DAF1B670056DEE7 /* Views */,
 				62548FE91CD0707000D1B17D /* ShakeToChange.swift */,
 			);
 			name = ShakeToChange;
+			sourceTree = "<group>";
+		};
+		6270021B1DAF1B670056DEE7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				627002191DAF1B500056DEE7 /* ShakeToChangeViewController.swift */,
+				6270021C1DAF1B9D0056DEE7 /* ShakeToChangeViewController-Motion.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,13 +218,16 @@
 				TargetAttributes = {
 					6248BB201CBD056600260C98 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					6248BB341CBD056600260C98 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = 6248BB201CBD056600260C98;
 					};
 					6248BB3F1CBD056600260C98 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = 6248BB201CBD056600260C98;
 					};
 				};
@@ -271,7 +285,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6248BB271CBD056600260C98 /* ViewController.swift in Sources */,
-				628073581CBD0D08004F96F5 /* ViewController-Shake.swift in Sources */,
+				6270021D1DAF1B9D0056DEE7 /* ShakeToChangeViewController-Motion.swift in Sources */,
+				6270021A1DAF1B500056DEE7 /* ShakeToChangeViewController.swift in Sources */,
 				6248BB251CBD056600260C98 /* AppDelegate.swift in Sources */,
 				62548FEA1CD0707000D1B17D /* ShakeToChange.swift in Sources */,
 			);
@@ -419,6 +434,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blezcode.ShakeToChange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -430,6 +446,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blezcode.ShakeToChange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -441,6 +458,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blezcode.ShakeToChangeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShakeToChange.app/ShakeToChange";
 			};
 			name = Debug;
@@ -453,6 +471,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blezcode.ShakeToChangeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShakeToChange.app/ShakeToChange";
 			};
 			name = Release;
@@ -464,6 +483,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blezcode.ShakeToChangeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ShakeToChange;
 			};
 			name = Debug;
@@ -475,6 +495,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blezcode.ShakeToChangeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ShakeToChange;
 			};
 			name = Release;

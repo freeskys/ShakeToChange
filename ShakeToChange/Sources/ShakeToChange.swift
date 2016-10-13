@@ -22,13 +22,13 @@ class ShakeToChange {
      - returns: Bool Current environment
      */
     static func currentEnvironment() -> Bool {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let userDefaults = UserDefaults.standard
         var currentEnvironment: Bool = false
         
-        if let savedEnvironment: Bool = userDefaults.objectForKey(objectKey) as? Bool {
+        if let savedEnvironment: Bool = userDefaults.object(forKey: objectKey) as? Bool {
             currentEnvironment = savedEnvironment
         } else {
-            userDefaults.setBool(false, forKey: objectKey)
+            userDefaults.set(false, forKey: objectKey)
             currentEnvironment = false
         }
         
@@ -40,40 +40,56 @@ class ShakeToChange {
      
      - parameter currentViewController: currentViewController Current active view controller
      */
-    static func handleShake(currentViewController: UIViewController) {
-        let deviceModel: String = UIDevice.currentDevice().name
-        print("CURRENT DEVICE MODEL: \(deviceModel)")
+    static func handleShake(_ currentViewController: UIViewController) {
+        let deviceModel: String = UIDevice.current.model
+        let systemName: String = UIDevice.current.systemName
+        print("DETECTING CURRENT DEVICE MODEL = \(deviceModel)")
         
         // Don't run this check on Simulator
         if deviceModel != "iPhone Simulator" {
+            print("SIMULATOR NOT DETECTED")
+            
             // Don't show alert when openned on App Store Build
-            guard let _: String = NSBundle.mainBundle().pathForResource("embedded", ofType: "mobileprovision") else {
-                // This is app store build. Break the function
-                return
-            }
+//            guard Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt" else {
+//                // This is app store build. Break the function
+//                print("APP STORE BUILD DETECTED")
+//                return
+//            }
+        } else {
+            print("SIMULATOR DETECTED")
         }
     
-        let userDefaults = NSUserDefaults.standardUserDefaults()
+        showEnvironmentSheet(currentViewController)
+    }
+    
+    /**
+     Show the environment sheet.
+     
+     - parameter currentViewController: currentViewController Current active view controller
+     */
+    static func showEnvironmentSheet(_ currentViewController: UIViewController) {
+        // User defaults
+        let userDefaults = UserDefaults.standard
         
         // Initialize alert
         let alertTitle: String = "Current Environment: \(ShakeToChange.currentEnvironment() ? "Production" : "Development")"
         
         let alert = UIAlertController(title: alertTitle,
                                       message: nil,
-                                      preferredStyle: .ActionSheet)
+                                      preferredStyle: .actionSheet)
         
         let devAction = UIAlertAction(title: "Development",
-                                      style: .Default,
+                                      style: .default,
                                       handler: { (action: UIAlertAction) in
-                                        userDefaults.setBool(false, forKey: objectKey)
+                                        userDefaults.set(false, forKey: objectKey)
         })
         let prodAction = UIAlertAction(title: "Production",
-                                       style: .Default,
+                                       style: .default,
                                        handler: { (action: UIAlertAction) in
-                                        userDefaults.setBool(true, forKey: objectKey)
+                                        userDefaults.set(true, forKey: objectKey)
         })
         let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .Cancel,
+                                         style: .cancel,
                                          handler: nil)
         
         // Add button to alert
@@ -82,7 +98,19 @@ class ShakeToChange {
         alert.addAction(cancelAction)
         
         // Show alert
-        currentViewController.presentViewController(alert, animated: true, completion: nil)
+        currentViewController.present(alert, animated: true, completion: nil)
+        print("SHOWING ACTION SHEET")
+    }
+    
+}
+
+extension UIViewController {
+    
+    /**
+     Handle shake event.
+     */
+    func handleShake() {
+        ShakeToChange.handleShake(self)
     }
     
 }
